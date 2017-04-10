@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  That Bus
-//
-//  Created by Matthew Z Haralovich on 4/10/17.
-//  Copyright © 2017 Haralovich. All rights reserved.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
