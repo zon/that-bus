@@ -12,6 +12,9 @@
 		EC26C77C1E9D49A20020F64F /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C77B1E9D49A20020F64F /* UILabelExtension.swift */; };
 		EC26C77E1E9D527A0020F64F /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C77D1E9D527A0020F64F /* Palette.swift */; };
 		EC26C7801E9D53860020F64F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C77F1E9D53860020F64F /* UIViewExtension.swift */; };
+		EC26C7831E9D68A20020F64F /* RegisterLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C7821E9D68A20020F64F /* RegisterLayout.swift */; };
+		EC26C7851E9D6CA00020F64F /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C7841E9D6CA00020F64F /* RegisterController.swift */; };
+		EC26C7871E9D71A10020F64F /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C7861E9D71A10020F64F /* TextField.swift */; };
 		EC6C10B51E9C16CB0018DB78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6C10B41E9C16CB0018DB78 /* AppDelegate.swift */; };
 		EC6C10B71E9C16CB0018DB78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6C10B61E9C16CB0018DB78 /* ViewController.swift */; };
 		EC6C10BA1E9C16CB0018DB78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6C10B81E9C16CB0018DB78 /* Main.storyboard */; };
@@ -30,6 +33,9 @@
 		EC26C77B1E9D49A20020F64F /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		EC26C77D1E9D527A0020F64F /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
 		EC26C77F1E9D53860020F64F /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		EC26C7821E9D68A20020F64F /* RegisterLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterLayout.swift; sourceTree = "<group>"; };
+		EC26C7841E9D6CA00020F64F /* RegisterController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		EC26C7861E9D71A10020F64F /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		EC6C10B11E9C16CB0018DB78 /* BT Bus Pass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BT Bus Pass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6C10B41E9C16CB0018DB78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EC6C10B61E9C16CB0018DB78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,8 +64,9 @@
 		EC26C7781E9D44D20020F64F /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
-				EC26C7761E9D44CA0020F64F /* TicketsLayout.swift */,
 				ECBD86671E9C1DCF008400AD /* BlankLayout.swift */,
+				EC26C7761E9D44CA0020F64F /* TicketsLayout.swift */,
+				EC26C7821E9D68A20020F64F /* RegisterLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -95,6 +102,7 @@
 				EC26C7781E9D44D20020F64F /* Layouts */,
 				ECBD86641E9C1C85008400AD /* Controllers */,
 				EC26C7811E9D53C50020F64F /* Extensions */,
+				EC26C7861E9D71A10020F64F /* TextField.swift */,
 				EC26C77D1E9D527A0020F64F /* Palette.swift */,
 				EC6C10B41E9C16CB0018DB78 /* AppDelegate.swift */,
 				EC6C10B61E9C16CB0018DB78 /* ViewController.swift */,
@@ -114,6 +122,7 @@
 				ECBD86601E9C1B58008400AD /* TicketsController.swift */,
 				ECBD86621E9C1C7F008400AD /* ProfileController.swift */,
 				ECBD86651E9C1CA4008400AD /* TabBarController.swift */,
+				EC26C7841E9D6CA00020F64F /* RegisterController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -194,6 +203,7 @@
 				ECBD86631E9C1C7F008400AD /* ProfileController.swift in Sources */,
 				EC26C77E1E9D527A0020F64F /* Palette.swift in Sources */,
 				ECBD865F1E9C19EE008400AD /* Unit.swift in Sources */,
+				EC26C7871E9D71A10020F64F /* TextField.swift in Sources */,
 				EC26C77C1E9D49A20020F64F /* UILabelExtension.swift in Sources */,
 				ECBD86611E9C1B58008400AD /* TicketsController.swift in Sources */,
 				EC26C7771E9D44CA0020F64F /* TicketsLayout.swift in Sources */,
@@ -201,8 +211,10 @@
 				ECBD86661E9C1CA4008400AD /* TabBarController.swift in Sources */,
 				EC26C77A1E9D48000020F64F /* Font.swift in Sources */,
 				EC6C10B71E9C16CB0018DB78 /* ViewController.swift in Sources */,
+				EC26C7851E9D6CA00020F64F /* RegisterController.swift in Sources */,
 				ECBD86681E9C1DCF008400AD /* BlankLayout.swift in Sources */,
 				EC6C10B51E9C16CB0018DB78 /* AppDelegate.swift in Sources */,
+				EC26C7831E9D68A20020F64F /* RegisterLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,10 +15,17 @@ class TicketsController : UIViewController {
     
     override func loadView() {
         view = layout
+        
+        layout.buyTickets.addTarget(self, action: #selector(buyTouch), for: .touchUpInside)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         layout.setInsets(top: navigationController?.navigationBar.frame.maxY, bottom: tabBarController?.tabBar.frame.height)
+    }
+    
+    func buyTouch() {
+        navigationController?.pushViewController(RegisterController(), animated: true)
     }
     
 }

@@ -10,7 +10,7 @@ class TicketsLayout : UIView {
         let m2 = Unit.m2
         
         let width = frame.width - m2 * 2
-        var font = Font.title
+        var font = Font.label
         
         let noTicketsTitle = UILabel(frame: CGRect(x: m2, y: m2, width: width, height: font.lineHeight))
         noTicketsTitle.text = "10 Ride Tickets"
@@ -43,7 +43,7 @@ class TicketsLayout : UIView {
         buyTickets.addBorder(width: Unit.one, color: Palette.border, visible: BorderVisible(top: true, bottom: true))
         
         super.init(frame: frame)
-        backgroundColor = UIColor.groupTableViewBackground
+        backgroundColor = Palette.background
         
         addSubview(noTickets)
         addSubview(buyTickets)
