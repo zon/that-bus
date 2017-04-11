@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class TicketsController : UIViewController {
-    let layout = BlankLayout()
+    let layout = TicketsLayout()
     
     required init() {
         super.init(nibName: nil, bundle: nil)
@@ -15,7 +15,10 @@ class TicketsController : UIViewController {
     
     override func loadView() {
         view = layout
-        layout.backgroundColor = UIColor.cyan
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        layout.setInsets(top: navigationController?.navigationBar.frame.maxY, bottom: tabBarController?.tabBar.frame.height)
     }
     
 }
