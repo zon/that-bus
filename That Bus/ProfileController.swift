@@ -6,7 +6,7 @@ class ProfileController : UIViewController {
     
     required init() {
         super.init(nibName: nil, bundle: nil)
-        tabBarItem.title = "Profile"
+        title = "Profile"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -16,5 +16,7 @@ class ProfileController : UIViewController {
     override func loadView() {
         view = layout
     }
+    
+    
     
 }

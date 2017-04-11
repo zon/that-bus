@@ -6,7 +6,7 @@ class TicketsController : UIViewController {
     
     required init() {
         super.init(nibName: nil, bundle: nil)
-        tabBarItem.title = "Tickets"
+        title = "Tickets"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -15,6 +15,7 @@ class TicketsController : UIViewController {
     
     override func loadView() {
         view = layout
+        layout.backgroundColor = UIColor.cyan
     }
     
 }
