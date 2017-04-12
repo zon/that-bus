@@ -17,11 +17,13 @@ class RegisterLayout : UIView {
         email.padding = UIEdgeInsets(top: 0, left: m2, bottom: 0, right: m2)
         email.keyboardType = .emailAddress
         email.autocapitalizationType = .none
+        email.autocorrectionType = .no
         email.returnKeyType = .next
         email.spellCheckingType = .no
         
         let details = UILabel(frame: CGRect(x: m2, y: email.frame.maxY + m2, width: frame.width - m2 * 2, height: 10))
         details.font = Font.small
+        details.textColor = UIColor.gray
         details.text = "Save your tickets online."
         details.resizeHeight()
         

@@ -57,6 +57,20 @@ extension UIView {
         ))
     }
     
+    func resizeWidth() {
+        let origin = frame.origin
+        frame.size.width = CGFloat.greatestFiniteMagnitude
+        sizeToFit()
+        frame.origin = origin
+    }
+    
+    func resizeHeight() {
+        let origin = frame.origin
+        frame.size.height = CGFloat.greatestFiniteMagnitude
+        sizeToFit()
+        frame.origin = origin
+    }
+    
     func hideKeyboardOnTap() {
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(UIView.dismissKeyboard)))
     }
