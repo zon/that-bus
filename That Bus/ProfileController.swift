@@ -17,6 +17,4 @@ class ProfileController : UIViewController {
         view = layout
     }
     
-    
-    
 }

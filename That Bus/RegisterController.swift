@@ -6,7 +6,7 @@ class RegisterController : UIViewController, UITextFieldDelegate {
     
     required init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Create Account"
+        title = "Register"
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,7 +40,8 @@ class RegisterController : UIViewController, UITextFieldDelegate {
     }
     
     func nextTouch() {
-    
+        let quantity = TicketQuantity(name: "Ride Tickets", price: 10, count: 10)
+        navigationController?.pushViewController(CheckoutController(quantity: quantity), animated: true)
     }
     
 }

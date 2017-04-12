@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		499A0DF2B6EC86EDDEE29465 /* Pods_BT_Bus_Pass.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF5569B8A783716D994B76DF /* Pods_BT_Bus_Pass.framework */; };
 		EC26C7771E9D44CA0020F64F /* TicketsLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C7761E9D44CA0020F64F /* TicketsLayout.swift */; };
 		EC26C77A1E9D48000020F64F /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C7791E9D48000020F64F /* Font.swift */; };
 		EC26C77E1E9D527A0020F64F /* Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC26C77D1E9D527A0020F64F /* Palette.swift */; };
@@ -26,9 +27,15 @@
 		ECBD86631E9C1C7F008400AD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD86621E9C1C7F008400AD /* ProfileController.swift */; };
 		ECBD86661E9C1CA4008400AD /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD86651E9C1CA4008400AD /* TabBarController.swift */; };
 		ECBD86681E9C1DCF008400AD /* BlankLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD86671E9C1DCF008400AD /* BlankLayout.swift */; };
+		ECD724BC1E9EA2FB000B3611 /* CheckoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD724BB1E9EA2FB000B3611 /* CheckoutController.swift */; };
+		ECD724C51E9EA778000B3611 /* CheckoutLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD724C41E9EA778000B3611 /* CheckoutLayout.swift */; };
+		ECD724C71E9EBA1B000B3611 /* StripeAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD724C61E9EBA1B000B3611 /* StripeAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E65642A58314986F6D86D43 /* Pods-BT Bus Pass.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BT Bus Pass.release.xcconfig"; path = "Pods/Target Support Files/Pods-BT Bus Pass/Pods-BT Bus Pass.release.xcconfig"; sourceTree = "<group>"; };
+		35F5F87F7A76A1B79FD16772 /* Pods-BT Bus Pass.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BT Bus Pass.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BT Bus Pass/Pods-BT Bus Pass.debug.xcconfig"; sourceTree = "<group>"; };
+		DF5569B8A783716D994B76DF /* Pods_BT_Bus_Pass.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BT_Bus_Pass.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC26C7761E9D44CA0020F64F /* TicketsLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsLayout.swift; sourceTree = "<group>"; };
 		EC26C7791E9D48000020F64F /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
 		EC26C77D1E9D527A0020F64F /* Palette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palette.swift; sourceTree = "<group>"; };
@@ -50,6 +57,9 @@
 		ECBD86621E9C1C7F008400AD /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		ECBD86651E9C1CA4008400AD /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		ECBD86671E9C1DCF008400AD /* BlankLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankLayout.swift; sourceTree = "<group>"; };
+		ECD724BB1E9EA2FB000B3611 /* CheckoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutController.swift; sourceTree = "<group>"; };
+		ECD724C41E9EA778000B3611 /* CheckoutLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutLayout.swift; sourceTree = "<group>"; };
+		ECD724C61E9EBA1B000B3611 /* StripeAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StripeAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,18 +67,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				499A0DF2B6EC86EDDEE29465 /* Pods_BT_Bus_Pass.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AAE288AA804B5F95F3C0E2D2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35F5F87F7A76A1B79FD16772 /* Pods-BT Bus Pass.debug.xcconfig */,
+				2E65642A58314986F6D86D43 /* Pods-BT Bus Pass.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EB983FF3FD2345D502311D4F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DF5569B8A783716D994B76DF /* Pods_BT_Bus_Pass.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC26C7781E9D44D20020F64F /* Layouts */ = {
 			isa = PBXGroup;
 			children = (
 				ECBD86671E9C1DCF008400AD /* BlankLayout.swift */,
 				EC26C7761E9D44CA0020F64F /* TicketsLayout.swift */,
 				EC26C7821E9D68A20020F64F /* RegisterLayout.swift */,
+				ECD724C41E9EA778000B3611 /* CheckoutLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -86,6 +115,8 @@
 			children = (
 				EC6C10B31E9C16CB0018DB78 /* That Bus */,
 				EC6C10B21E9C16CB0018DB78 /* Products */,
+				AAE288AA804B5F95F3C0E2D2 /* Pods */,
+				EB983FF3FD2345D502311D4F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,10 +131,10 @@
 		EC6C10B31E9C16CB0018DB78 /* That Bus */ = {
 			isa = PBXGroup;
 			children = (
+				ECD724BF1E9EA376000B3611 /* Views */,
 				EC26C7781E9D44D20020F64F /* Layouts */,
 				ECBD86641E9C1C85008400AD /* Controllers */,
 				EC26C7811E9D53C50020F64F /* Extensions */,
-				EC26C7861E9D71A10020F64F /* TextField.swift */,
 				EC26C77D1E9D527A0020F64F /* Palette.swift */,
 				EC6C10B41E9C16CB0018DB78 /* AppDelegate.swift */,
 				EC6C10B61E9C16CB0018DB78 /* ViewController.swift */,
@@ -113,8 +144,8 @@
 				EC6C10C01E9C16CB0018DB78 /* Info.plist */,
 				ECBD865E1E9C19EE008400AD /* Unit.swift */,
 				EC26C7791E9D48000020F64F /* Font.swift */,
-				EC26C7881E9E92690020F64F /* TicketQuantityView.swift */,
 				EC26C78A1E9E92A20020F64F /* TicketQuantity.swift */,
+				ECD724C61E9EBA1B000B3611 /* StripeAdapter.swift */,
 			);
 			path = "That Bus";
 			sourceTree = "<group>";
@@ -126,8 +157,18 @@
 				ECBD86621E9C1C7F008400AD /* ProfileController.swift */,
 				ECBD86651E9C1CA4008400AD /* TabBarController.swift */,
 				EC26C7841E9D6CA00020F64F /* RegisterController.swift */,
+				ECD724BB1E9EA2FB000B3611 /* CheckoutController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		ECD724BF1E9EA376000B3611 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EC26C7861E9D71A10020F64F /* TextField.swift */,
+				EC26C7881E9E92690020F64F /* TicketQuantityView.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC6C10C31E9C16CB0018DB78 /* Build configuration list for PBXNativeTarget "BT Bus Pass" */;
 			buildPhases = (
+				CBA96422CDEE77C072C8D3C0 /* [CP] Check Pods Manifest.lock */,
 				EC6C10AD1E9C16CB0018DB78 /* Sources */,
 				EC6C10AE1E9C16CB0018DB78 /* Frameworks */,
 				EC6C10AF1E9C16CB0018DB78 /* Resources */,
+				B9AB452B5424442275320EE1 /* [CP] Embed Pods Frameworks */,
+				385B86D6E618AD17ECC9A0FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -198,17 +242,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		385B86D6E618AD17ECC9A0FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BT Bus Pass/Pods-BT Bus Pass-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9AB452B5424442275320EE1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BT Bus Pass/Pods-BT Bus Pass-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CBA96422CDEE77C072C8D3C0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EC6C10AD1E9C16CB0018DB78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				ECBD86631E9C1C7F008400AD /* ProfileController.swift in Sources */,
+				ECD724C71E9EBA1B000B3611 /* StripeAdapter.swift in Sources */,
 				EC26C78B1E9E92A20020F64F /* TicketQuantity.swift in Sources */,
 				EC26C7891E9E92690020F64F /* TicketQuantityView.swift in Sources */,
 				EC26C77E1E9D527A0020F64F /* Palette.swift in Sources */,
 				ECBD865F1E9C19EE008400AD /* Unit.swift in Sources */,
+				ECD724BC1E9EA2FB000B3611 /* CheckoutController.swift in Sources */,
 				EC26C7871E9D71A10020F64F /* TextField.swift in Sources */,
+				ECD724C51E9EA778000B3611 /* CheckoutLayout.swift in Sources */,
 				ECBD86611E9C1B58008400AD /* TicketsController.swift in Sources */,
 				EC26C7771E9D44CA0020F64F /* TicketsLayout.swift in Sources */,
 				EC26C7801E9D53860020F64F /* UIViewExtension.swift in Sources */,
@@ -339,6 +434,7 @@
 		};
 		EC6C10C41E9C16CB0018DB78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35F5F87F7A76A1B79FD16772 /* Pods-BT Bus Pass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4R9VQJ34Q5;
@@ -353,6 +449,7 @@
 		};
 		EC6C10C51E9C16CB0018DB78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E65642A58314986F6D86D43 /* Pods-BT Bus Pass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 4R9VQJ34Q5;

@@ -1,0 +1,6 @@
+framework module Pods_BT_Bus_Pass {
+  umbrella header "Pods-BT Bus Pass-umbrella.h"
+
+  export *
+  module * { export * }
+}
