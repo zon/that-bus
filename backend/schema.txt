@@ -1,0 +1,6 @@
+
+
+get		/session				Responds with session info.
+post	/session/email			Sends an email containing a login token.
+get		/session/email/:token	Restores session using a login token. Merges anonymus sessions.
+								Replaces registered sessions.
