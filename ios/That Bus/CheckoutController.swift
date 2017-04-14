@@ -4,13 +4,16 @@ import Stripe
 class CheckoutController: UIViewController, STPPaymentContextDelegate {
     let user: User
     let quantity: TicketQuantity
+    let adapter: StripeAdapter
     let context: STPPaymentContext
     let layout = CheckoutLayout()
     
     required init(user: User, quantity: TicketQuantity) {
         self.user = user
         self.quantity = quantity
-        context = STPPaymentContext(apiAdapter: StripeAdapter.shared)
+        adapter = StripeAdapter.shared
+        context = STPPaymentContext(apiAdapter: adapter)
+        context.paymentAmount = quantity.price * 100
         
         super.init(nibName: nil, bundle: nil)
         title = "Checkout"
@@ -27,6 +30,7 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
         view = layout
         
         layout.methodButton.addTarget(self, action: #selector(methodTouch), for: .touchUpInside)
+        layout.buy.addTarget(self, action: #selector(buyTouch), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,7 +48,7 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
     }
     
     func paymentContext(_ context: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        print("CREATE CHARGE")
+        adapter.completeCharge(paymentResult, amount: context.paymentAmount, completion: completion)
     }
     
     func paymentContext(_ context: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
@@ -79,6 +83,10 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
     
     func methodTouch() {
         context.pushPaymentMethodsViewController()
+    }
+    
+    func buyTouch() {
+        context.requestPayment()
     }
     
 }

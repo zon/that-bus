@@ -1,4 +1,6 @@
 import Foundation
+import PromiseKit
+import SwiftyJSON
 import Alamofire
 import Stripe
 
@@ -6,7 +8,11 @@ class StripeAdapter : NSObject, STPBackendAPIAdapter {
     static let shared = StripeAdapter()
     
     func retrieveCustomer(_ completion: @escaping STPCustomerCompletionBlock) {
-        Alamofire.request(API.url("/customer")).responseData { response in
+        let url = API.url("/customer")
+        if Settings.debug {
+            print("GET", url)
+        }
+        Alamofire.request(url).responseData { response in
             switch response.result {
             case .success(let data):
                 let deserializer = STPCustomerDeserializer(data: data, urlResponse: nil, error: nil)
@@ -22,9 +28,13 @@ class StripeAdapter : NSObject, STPBackendAPIAdapter {
     }
     
     func attachSource(toCustomer source: STPSource, completion: @escaping STPErrorBlock) {
+        let url = API.url("/customer/source")
         let params = ["source": source.stripeID]
+        if Settings.debug {
+            print("POST", url, params)
+        }
         Alamofire
-            .request(API.url("/customer/source"), method: .post, parameters: params, encoding: JSONEncoding.default)
+            .request(url, method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseData { response in
                 switch response.result {
                 case .success:
@@ -36,9 +46,13 @@ class StripeAdapter : NSObject, STPBackendAPIAdapter {
     }
     
     func selectDefaultCustomerSource(_ source: STPSource, completion: @escaping STPErrorBlock) {
+        let url = API.url("/customer/default_source")
         let params = ["source": source.stripeID]
+        if Settings.debug {
+            print("POST", url, params)
+        }
         Alamofire
-            .request(API.url("/customer/default_source"), method: .post, parameters: params, encoding: JSONEncoding.default)
+            .request(url, method: .post, parameters: params, encoding: JSONEncoding.default)
             .responseData { response in
                 switch response.result {
                 case .success:
@@ -47,6 +61,14 @@ class StripeAdapter : NSObject, STPBackendAPIAdapter {
                     completion(error)
                 }
             }
+    }
+    
+    func completeCharge(_ result: STPPaymentResult, amount: Int, completion: @escaping STPErrorBlock) {
+        let json = JSON(["source": result.source.stripeID, "amount": amount])
+        Http.request(API.url("/customer/charge"), method: .post, json: json)
+            .responseOk()
+            .then { ok in completion(nil) }
+            .catch { err in completion(err) }
     }
     
 }

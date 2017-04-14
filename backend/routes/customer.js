@@ -43,4 +43,19 @@ router.post('/default_source', (req, res) => {
 	})
 })
 
+router.post('/charge', (req, res) => {
+	stripe.charges.create({
+		amount: req.body.amount,
+		currency: "usd",
+		source: req.body.source
+	}, function(err, charge) {
+		if (err) {
+			console.error(err)
+			res.status(402).send('Error creating charge.')
+		} else {
+			res.status(200).end()
+		}
+	})
+})
+
 module.exports = router

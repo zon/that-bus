@@ -6,7 +6,7 @@ class Http {
     
     static let contentType = "application/json"
     
-    static func request(method: HTTPMethod, _ url: String, json: JSON) -> Alamofire.Request {
+    static func request(_ url: String, method: HTTPMethod, json: JSON) -> Alamofire.DataRequest {
         var request = URLRequest(url: URL(string: url)!)
         request.httpMethod = method.rawValue
         request.addValue(contentType, forHTTPHeaderField: "Accepts")
