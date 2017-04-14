@@ -8,8 +8,6 @@ var settings = require('./common/settings')
 var config = require('./common/config')
 var db = require('./common/db')
 
-var session = 
-
 db.connect()
 
 var app = express()
@@ -29,20 +27,20 @@ app.use(expressSession({
 
 app.use((req, res, next) => {
 
-    res.badRequest = function(msg) {
-        res.status(400).json(msg || "Bad request")
-    }
-    res.unauthorized = function(msg) {
-        res.status(401).json(msg || "Unauthorized")
-    }
-    res.forbidden = function(msg) {
-        res.status(403).json(msg || "Forbidden")
-    }
-    res.notFound = function(msg) {
-        res.status(404).json(msg || "Not found")
-    }
+	res.badRequest = function(msg) {
+		res.status(400).json(msg || "Bad request")
+	}
+	res.unauthorized = function(msg) {
+		res.status(401).json(msg || "Unauthorized")
+	}
+	res.forbidden = function(msg) {
+		res.status(403).json(msg || "Forbidden")
+	}
+	res.notFound = function(msg) {
+		res.status(404).json(msg || "Not found")
+	}
 
-    next()
+	next()
 })
 
 app.use((req, res, next) => {
@@ -52,8 +50,15 @@ app.use((req, res, next) => {
 
 app.use('/session', require('./routes/session'))
 
+app.use((req, res, next) => {
+	if (!req.session || !req.session.userId)
+		res.unauthorized("Unauthorized!")
+})
+
+app.use('/customer', require('./routes/customer'))
+
 app.use((req, res) => {
-    res.notFound('Not found!')
+	res.notFound('Not found!')
 })
 
 app.listen(8080, () => {

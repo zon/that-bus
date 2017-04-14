@@ -4,6 +4,7 @@ let ObjectId = mongoose.Schema.Types.ObjectId
 
 let schema = new mongoose.Schema({
 	email: {type: String, trim: true},
+	customerId: String,
 	mergedId: ObjectId,
 	created: {type: Date, default: Date.now},
 	modified: {type: Date, default: Date.now}
