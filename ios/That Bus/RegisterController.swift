@@ -40,8 +40,8 @@ class RegisterController : UIViewController, UITextFieldDelegate {
     }
     
     func nextTouch() {
-        let quantity = TicketQuantity(name: "Ride Tickets", price: 10, count: 10)
-        navigationController?.pushViewController(CheckoutController(quantity: quantity), animated: true)
+//        let quantity = TicketQuantity(name: "Ride Tickets", price: 10, count: 10)
+        
     }
     
 }

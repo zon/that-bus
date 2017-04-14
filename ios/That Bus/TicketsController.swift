@@ -27,7 +27,10 @@ class TicketsController : UIViewController {
     }
     
     func buyTouch() {
-        navigationController?.pushViewController(RegisterController(), animated: true)
+        progress(Session.getUser().then { user -> Void in
+            let controller = CheckoutController(user: user, quantity: self.quantity)
+            self.navigationController?.pushViewController(controller, animated: true)
+        })
     }
     
 }

@@ -49,12 +49,6 @@ app.use((req, res, next) => {
 })
 
 app.use('/session', require('./routes/session'))
-
-app.use((req, res, next) => {
-	if (!req.session || !req.session.userId)
-		res.unauthorized("Unauthorized!")
-})
-
 app.use('/customer', require('./routes/customer'))
 
 app.use((req, res) => {

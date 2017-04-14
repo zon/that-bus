@@ -2,11 +2,13 @@ import UIKit
 import Stripe
 
 class CheckoutController: UIViewController, STPPaymentContextDelegate {
+    let user: User
     let quantity: TicketQuantity
     let context: STPPaymentContext
     let layout = CheckoutLayout()
     
-    required init(quantity: TicketQuantity) {
+    required init(user: User, quantity: TicketQuantity) {
+        self.user = user
         self.quantity = quantity
         context = STPPaymentContext(apiAdapter: StripeAdapter.shared)
         
@@ -33,7 +35,11 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
     }
     
     func paymentContextDidChange(_ context: STPPaymentContext) {
-        print("LOADING", context.loading)
+        if context.loading {
+            ProgressController.show()
+        } else {
+            ProgressController.hide()
+        }
         layout.update(quantity: quantity, method: context.selectedPaymentMethod)
     }
     
@@ -72,7 +78,6 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
     }
     
     func methodTouch() {
-        print("METHOD")
         context.pushPaymentMethodsViewController()
     }
     

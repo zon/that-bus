@@ -3,4 +3,7 @@ platform :ios, '9.0'
 target 'BT Bus Pass' do
   use_frameworks!
   pod 'Stripe'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+  pod 'PromiseKit'
 end

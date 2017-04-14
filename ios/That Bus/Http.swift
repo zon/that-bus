@@ -1,0 +1,18 @@
+import Foundation
+import Alamofire
+import SwiftyJSON
+
+class Http {
+    
+    static let contentType = "application/json"
+    
+    static func request(method: HTTPMethod, _ url: String, json: JSON) -> Alamofire.Request {
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = method.rawValue
+        request.addValue(contentType, forHTTPHeaderField: "Accepts")
+        request.addValue(contentType, forHTTPHeaderField: "Content-Type")
+        request.httpBody = try! json.rawData()
+        return Alamofire.request(request)
+    }
+    
+}
