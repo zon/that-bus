@@ -12,6 +12,10 @@ class Ticket : DocProtocol {
         return expires != nil
     }
     
+//    var remaining: DateComponents? {
+//        let calender = Calendar.current
+//    }
+    
     required init?(json: JSON) {
         if
             let id = json["_id"].string,

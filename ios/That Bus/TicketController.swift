@@ -3,6 +3,8 @@ import UIKit
 import AVFoundation
 
 class TicketController : UIViewController {
+    let product: Product
+    let ticket: Ticket
     let item: AVPlayerItem
     let player: AVPlayer
     let layout = TicketLayout()
@@ -11,7 +13,9 @@ class TicketController : UIViewController {
         return true
     }
     
-    required init() {
+    required init(product: Product, ticket: Ticket) {
+        self.product = product
+        self.ticket = ticket
         
         let path = Bundle.main.path(forResource: "Inside Bus", ofType: "mp4")!
         let url = URL.init(fileURLWithPath: path)
@@ -40,6 +44,8 @@ class TicketController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
+        
+        layout.update(product: product, ticket: ticket)
         
         player.volume = 0
         player.play()
