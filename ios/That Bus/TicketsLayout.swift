@@ -39,8 +39,8 @@ class TicketsLayout : UIView {
         content.frame.origin.y = top ?? 0
     }
     
-    func update(quantity: TicketQuantity) {
-        self.quantity.update(quantity: quantity)
+    func update(group: PassGroup) {
+        self.quantity.update(group: group)
     }
     
 }

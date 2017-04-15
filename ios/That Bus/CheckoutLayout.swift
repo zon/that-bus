@@ -86,9 +86,9 @@ class CheckoutLayout : UIView {
         content.frame.origin.y = top ?? 0
     }
     
-    func update(quantity: TicketQuantity, method: STPPaymentMethod?) {
-        quantityLabel.text = "\(quantity.count) \(quantity.name)"
-        quantityPrice.text = "$\(quantity.price)"
+    func update(product: Product, method: STPPaymentMethod?) {
+        quantityLabel.text = product.name
+        quantityPrice.text = Format.dollars(product.price)
         
         if let method = method {
             methodImage.image = method.image

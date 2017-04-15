@@ -48,6 +48,7 @@ app.use((req, res, next) => {
 	next()
 })
 
+app.use('/products', require('./routes/products'))
 app.use('/session', require('./routes/session'))
 app.use('/customer', require('./routes/customer'))
 

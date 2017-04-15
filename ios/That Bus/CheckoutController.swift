@@ -3,17 +3,17 @@ import Stripe
 
 class CheckoutController: UIViewController, STPPaymentContextDelegate {
     let user: User
-    let quantity: TicketQuantity
+    let product: Product
     let adapter: StripeAdapter
     let context: STPPaymentContext
     let layout = CheckoutLayout()
     
-    required init(user: User, quantity: TicketQuantity) {
+    required init(user: User, product: Product) {
         self.user = user
-        self.quantity = quantity
+        self.product = product
         adapter = StripeAdapter.shared
         context = STPPaymentContext(apiAdapter: adapter)
-        context.paymentAmount = quantity.price * 100
+        context.paymentAmount = product.price
         
         super.init(nibName: nil, bundle: nil)
         title = "Checkout"
@@ -35,7 +35,7 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         layout.setInsets(top: navigationController?.navigationBar.frame.maxY, bottom: tabBarController?.tabBar.frame.height)
-        layout.update(quantity: quantity, method: context.selectedPaymentMethod)
+        layout.update(product: product, method: context.selectedPaymentMethod)
     }
     
     func paymentContextDidChange(_ context: STPPaymentContext) {
@@ -44,7 +44,7 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
         } else {
             ProgressController.hide()
         }
-        layout.update(quantity: quantity, method: context.selectedPaymentMethod)
+        layout.update(product: product, method: context.selectedPaymentMethod)
     }
     
     func paymentContext(_ context: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {

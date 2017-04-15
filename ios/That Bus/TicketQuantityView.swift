@@ -30,10 +30,10 @@ class TicketQuantityView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(quantity: TicketQuantity) {
-        label.text = "\(quantity.count) \(quantity.name)"
+    func update(group: PassGroup) {
+        label.text = group.name
         
-        let title = quantity.purchased ? "Activate" : "Buy $\(quantity.price)"
+        let title = group.purchased ? "Activate" : "Buy \(Format.dollars(group.product.price))"
         button.setTitle(title, for: .normal)
     }
     

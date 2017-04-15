@@ -2,8 +2,9 @@ import Foundation
 import UIKit
 
 class TicketsController : UIViewController {
-    let quantity = TicketQuantity(name: "Ride Tickets", price: 10, count: 10)
     let layout = TicketsLayout()
+    
+    private var group: PassGroup?
     
     required init() {
         super.init(nibName: nil, bundle: nil)
@@ -23,14 +24,28 @@ class TicketsController : UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         layout.setInsets(top: navigationController?.navigationBar.frame.maxY, bottom: tabBarController?.tabBar.frame.height)
-        layout.update(quantity: quantity)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        progress(Product.get().then { products -> Void in
+            if let product = products.first {
+                let group = PassGroup(product: product, passes: [])
+                self.group = group
+                self.layout.update(group: group)
+            } else {
+                self.group = nil
+                AlertController.show(message: "No passes found.")
+            }
+        })
     }
     
     func buyTouch() {
-        progress(Session.getUser().then { user -> Void in
-            let controller = CheckoutController(user: user, quantity: self.quantity)
-            self.navigationController?.pushViewController(controller, animated: true)
-        })
+        if let group = group {
+            progress(Session.getUser().then { user -> Void in
+                let controller = CheckoutController(user: user, product: group.product)
+                self.navigationController?.pushViewController(controller, animated: true)
+            })
+        }
     }
     
 }
