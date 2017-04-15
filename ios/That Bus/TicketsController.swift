@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import PromiseKit
 
 class TicketsController : UIViewController {
     let layout = TicketsLayout()
@@ -27,9 +28,9 @@ class TicketsController : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        progress(Product.get().then { products -> Void in
+        progress(when(fulfilled: Product.get(), Pass.get()).then { products, passes -> Void in
             if let product = products.first {
-                let group = PassGroup(product: product, passes: [])
+                let group = PassGroup(product: product, passes: passes)
                 self.group = group
                 self.layout.update(group: group)
             } else {

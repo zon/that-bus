@@ -1,6 +1,4 @@
-let _ = require('underscore')
 let mongoose = require('mongoose')
-let ObjectId = mongoose.Schema.Types.ObjectId
 
 let schema = new mongoose.Schema({
 	singular: String,
@@ -26,6 +24,14 @@ Product.setup = async function() {
 	}
 	product.set({singular: "Ride Ticket", plural: "Ride Tickets", price: 1000, quantity: 10})
 	return await product.save()
+}
+
+Product.prototype.getName = function() {
+	if (this.quantity == 1) {
+		return "1 "+ this.singular
+	} else {
+		return this.quantity +" "+ this.plural
+	}
 }
 
 module.exports = Product

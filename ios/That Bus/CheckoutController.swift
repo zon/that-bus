@@ -48,15 +48,17 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
     }
     
     func paymentContext(_ context: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        adapter.completeCharge(paymentResult, amount: context.paymentAmount, completion: completion)
+        adapter.completeCharge(paymentResult, product: product, completion: completion)
     }
     
     func paymentContext(_ context: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
         switch status {
         case .error:
-            print("ERROR", error?.localizedDescription ?? "UNKNOWN")
+            if let error = error {
+                AlertController.show(error: error)
+            }
         case .success:
-            print("SUCCESS")
+            dismiss(animated: true, completion: nil)
         case .userCancellation:
             return
         }

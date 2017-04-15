@@ -36,6 +36,7 @@
 		ECA03C3D1EA2984E0018E70F /* Pass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C3C1EA2984E0018E70F /* Pass.swift */; };
 		ECA03C3F1EA299030018E70F /* PassGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C3E1EA299030018E70F /* PassGroup.swift */; };
 		ECA03C411EA29D550018E70F /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C401EA29D550018E70F /* Format.swift */; };
+		ECA03C431EA2A2670018E70F /* JSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C421EA2A2670018E70F /* JSONExtension.swift */; };
 		ECBD865F1E9C19EE008400AD /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD865E1E9C19EE008400AD /* Unit.swift */; };
 		ECBD86611E9C1B58008400AD /* TicketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD86601E9C1B58008400AD /* TicketsController.swift */; };
 		ECBD86631E9C1C7F008400AD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD86621E9C1C7F008400AD /* ProfileController.swift */; };
@@ -80,6 +81,7 @@
 		ECA03C3C1EA2984E0018E70F /* Pass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pass.swift; sourceTree = "<group>"; };
 		ECA03C3E1EA299030018E70F /* PassGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassGroup.swift; sourceTree = "<group>"; };
 		ECA03C401EA29D550018E70F /* Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
+		ECA03C421EA2A2670018E70F /* JSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtension.swift; sourceTree = "<group>"; };
 		ECBD865E1E9C19EE008400AD /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		ECBD86601E9C1B58008400AD /* TicketsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsController.swift; sourceTree = "<group>"; };
 		ECBD86621E9C1C7F008400AD /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				ECA03C241EA14EA70018E70F /* AlamofireDataRequestExtension.swift */,
 				EC26C77F1E9D53860020F64F /* UIViewExtension.swift */,
 				ECA03C361EA15C1D0018E70F /* UIViewControllerExtension.swift */,
+				ECA03C421EA2A2670018E70F /* JSONExtension.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				ECBD86661E9C1CA4008400AD /* TabBarController.swift in Sources */,
 				EC26C77A1E9D48000020F64F /* Font.swift in Sources */,
 				EC6C10B71E9C16CB0018DB78 /* ViewController.swift in Sources */,
+				ECA03C431EA2A2670018E70F /* JSONExtension.swift in Sources */,
 				ECA03C3B1EA296310018E70F /* Product.swift in Sources */,
 				EC26C7851E9D6CA00020F64F /* RegisterController.swift in Sources */,
 				ECA03C411EA29D550018E70F /* Format.swift in Sources */,

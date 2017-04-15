@@ -1,6 +1,8 @@
 var express = require('express')
 var session = require('../common/session')
 var stripe = require('../common/stripe')
+var Product = require('../models/product')
+var Pass = require('../models/pass')
 
 var router = express.Router()
 
@@ -43,21 +45,36 @@ router.post('/default_source', (req, res) => {
 	})
 })
 
-router.post('/charge', (req, res) => {
-	stripe.charges.create({
-		amount: req.body.amount,
-		currency: "usd",
-		customer: req.user.customerId,
-		source: req.body.source,
-		description: "10 Ride Tickets"
-	}, function(err, charge) {
-		if (err) {
-			console.error(err)
-			res.status(402).send('Error creating charge.')
-		} else {
-			res.status(200).end()
-		}
+router.post('/charge', async (req, res) => {
+	let product = await Product.findById(req.body.productId)
+	if (!product) {
+		res.status(402).send('Product not found.')
+		return
+	}
+
+	let err = await new Promise((resolve, reject) => {
+		stripe.charges.create({
+			amount: product.price,
+			currency: "usd",
+			customer: req.user.customerId,
+			source: req.body.source,
+			description: product.getName()
+		}, (err, charge) => {
+			resolve(err)
+		})
 	})
+
+	if (err) {
+		console.error(err)
+		res.status(402).send('Error creating charge.')
+		return
+	}
+
+	for (let p = 0; p < product.quantity; p++) {
+		await new Pass({userId: req.user.id, productId: product.id}).save()
+	}
+
+	res.status(200).end()
 })
 
 module.exports = router

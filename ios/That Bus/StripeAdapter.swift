@@ -68,8 +68,8 @@ class StripeAdapter : NSObject, STPBackendAPIAdapter {
             }
     }
     
-    func completeCharge(_ result: STPPaymentResult, amount: Int, completion: @escaping STPErrorBlock) {
-        let json = JSON(["source": result.source.stripeID, "amount": amount])
+    func completeCharge(_ result: STPPaymentResult, product: Product, completion: @escaping STPErrorBlock) {
+        let json = JSON(["source": result.source.stripeID, "productId": product.id])
         Http.request(API.url("/customer/charge"), method: .post, json: json)
             .responseOk()
             .then { ok in completion(nil) }
