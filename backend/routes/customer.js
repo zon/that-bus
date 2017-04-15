@@ -2,7 +2,7 @@ var express = require('express')
 var session = require('../common/session')
 var stripe = require('../common/stripe')
 var Product = require('../models/product')
-var Pass = require('../models/pass')
+var Ticket = require('../models/ticket')
 
 var router = express.Router()
 
@@ -70,8 +70,8 @@ router.post('/charge', async (req, res) => {
 		return
 	}
 
-	for (let p = 0; p < product.quantity; p++) {
-		await new Pass({userId: req.user.id, productId: product.id}).save()
+	for (let t = 0; t < product.quantity; t++) {
+		await new Ticket({userId: req.user.id, productId: product.id}).save()
 	}
 
 	res.status(200).end()

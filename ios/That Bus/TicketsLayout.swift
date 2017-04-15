@@ -3,14 +3,14 @@ import UIKit
 
 class TicketsLayout : UIView {
     let content: UIView
-    let quantity: TicketQuantityView
+    let quantity: TicketGroupView
     let details: UILabel
     
     required init() {
         let frame = Unit.screen
         let m2 = Unit.m2
         
-        quantity = TicketQuantityView()
+        quantity = TicketGroupView()
         quantity.frame.origin.y = m2
         
         let width = frame.width - m2 * 2
@@ -39,7 +39,7 @@ class TicketsLayout : UIView {
         content.frame.origin.y = top ?? 0
     }
     
-    func update(group: PassGroup) {
+    func update(group: TicketGroup) {
         self.quantity.update(group: group)
     }
     

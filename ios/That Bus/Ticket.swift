@@ -3,10 +3,14 @@ import Alamofire
 import PromiseKit
 import SwiftyJSON
 
-class Pass : DocProtocol {
+class Ticket : DocProtocol {
     let id: String
     let productId: String
     let expires: Date?
+    
+    var isActive: Bool {
+        return expires != nil
+    }
     
     required init?(json: JSON) {
         if
@@ -21,11 +25,11 @@ class Pass : DocProtocol {
         }
     }
     
-    static func get() -> Promise<[Pass]> {
+    static func get() -> Promise<[Ticket]> {
         return Alamofire
-            .request(API.url("/passes"))
+            .request(API.url("/tickets"))
             .promiseJSON()
-            .then { $0.arrayValue.flatMap { Pass(json: $0) } }
+            .then { $0.arrayValue.flatMap { Ticket(json: $0) } }
     }
     
 }

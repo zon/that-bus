@@ -1,12 +1,12 @@
 import Foundation
 
-struct PassGroup {
+struct TicketGroup {
     let product: Product
-    let passes: [Pass]
+    let tickets: [Ticket]
     
     var quantity: Int {
-        if passes.count > 0 {
-            return passes.count
+        if tickets.count > 0 {
+            return tickets.count
         } else {
             return product.quantity
         }
@@ -22,7 +22,16 @@ struct PassGroup {
     }
     
     var purchased: Bool {
-        return passes.count > 0
+        return tickets.count > 0
+    }
+    
+    var hasActive: Bool {
+        for ticket in tickets {
+            if ticket.isActive {
+                return true
+            }
+        }
+        return false
     }
     
 }

@@ -14,6 +14,6 @@ schema.pre('save', (next) => {
 	next()
 })
 
-let Pass = mongoose.model('Pass', schema)
+let Ticket = mongoose.model('Ticket', schema)
 
-module.exports = Pass
+module.exports = Ticket

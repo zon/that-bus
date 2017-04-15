@@ -58,7 +58,7 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
                 AlertController.show(error: error)
             }
         case .success:
-            dismiss(animated: true, completion: nil)
+            navigationController?.popViewController(animated: true)
         case .userCancellation:
             return
         }

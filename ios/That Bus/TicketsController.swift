@@ -5,7 +5,7 @@ import PromiseKit
 class TicketsController : UIViewController {
     let layout = TicketsLayout()
     
-    private var group: PassGroup?
+    private var group: TicketGroup?
     
     required init() {
         super.init(nibName: nil, bundle: nil)
@@ -28,14 +28,14 @@ class TicketsController : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        progress(when(fulfilled: Product.get(), Pass.get()).then { products, passes -> Void in
+        progress(when(fulfilled: Product.get(), Ticket.get()).then { products, tickets -> Void in
             if let product = products.first {
-                let group = PassGroup(product: product, passes: passes)
+                let group = TicketGroup(product: product, tickets: tickets)
                 self.group = group
                 self.layout.update(group: group)
             } else {
                 self.group = nil
-                AlertController.show(message: "No passes found.")
+                AlertController.show(message: "No tickets found.")
             }
         })
     }
