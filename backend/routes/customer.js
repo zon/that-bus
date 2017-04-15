@@ -47,7 +47,9 @@ router.post('/charge', (req, res) => {
 	stripe.charges.create({
 		amount: req.body.amount,
 		currency: "usd",
-		source: req.body.source
+		customer: req.user.customerId,
+		source: req.body.source,
+		description: "10 Ride Tickets"
 	}, function(err, charge) {
 		if (err) {
 			console.error(err)

@@ -12,29 +12,33 @@ class StripeAdapter : NSObject, STPBackendAPIAdapter {
         if Settings.debug {
             print("GET", url)
         }
-        Alamofire.request(url).responseData { response in
-            switch response.result {
-            case .success(let data):
-                let deserializer = STPCustomerDeserializer(data: data, urlResponse: nil, error: nil)
-                if let error = deserializer.error {
+        Alamofire
+            .request(url)
+            .validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(let data):
+                    let deserializer = STPCustomerDeserializer(data: data, urlResponse: nil, error: nil)
+                    if let error = deserializer.error {
+                        completion(nil, error)
+                    } else if let customer = deserializer.customer {
+                        completion(customer, nil)
+                    }
+                case .failure(let error):
                     completion(nil, error)
-                } else if let customer = deserializer.customer {
-                    completion(customer, nil)
                 }
-            case .failure(let error):
-                completion(nil, error)
             }
-        }
     }
     
     func attachSource(toCustomer source: STPSource, completion: @escaping STPErrorBlock) {
-        let url = API.url("/customer/source")
+        let url = API.url("/customer/sources")
         let params = ["source": source.stripeID]
         if Settings.debug {
             print("POST", url, params)
         }
         Alamofire
             .request(url, method: .post, parameters: params, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
             .responseData { response in
                 switch response.result {
                 case .success:
@@ -53,6 +57,7 @@ class StripeAdapter : NSObject, STPBackendAPIAdapter {
         }
         Alamofire
             .request(url, method: .post, parameters: params, encoding: JSONEncoding.default)
+            .validate(statusCode: 200..<300)
             .responseData { response in
                 switch response.result {
                 case .success:
