@@ -36,4 +36,10 @@ class Ticket : DocProtocol {
             .then { $0.arrayValue.flatMap { Ticket(json: $0) } }
     }
     
+    static func activate() -> Promise<Ticket> {
+        return Alamofire
+            .request(API.url("/tickets/activate"), method: .post)
+            .responseDoc()
+    }
+    
 }

@@ -21,17 +21,17 @@ struct TicketGroup {
         }
     }
     
-    var purchased: Bool {
+    var hasTickets: Bool {
         return tickets.count > 0
     }
     
-    var hasActive: Bool {
+    var active: Ticket? {
         for ticket in tickets {
             if ticket.isActive {
-                return true
+                return ticket
             }
         }
-        return false
+        return nil
     }
     
 }

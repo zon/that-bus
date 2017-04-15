@@ -40,10 +40,10 @@ class TicketGroupView : UIView {
     func update(group: TicketGroup) {
         label.text = group.name
         
-        if group.hasActive {
+        if group.active != nil {
             action.text = "1 Active"
             
-        } else if group.purchased {
+        } else if group.hasTickets {
             action.text = "Activate"
         
         } else {

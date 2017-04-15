@@ -41,14 +41,19 @@ class TicketsController : UIViewController {
     }
     
     func groupTouch() {
-        if let group = group {
-            if let ticket = group.tickets.first {
-                navigationController?.pushViewController(TicketController(product: group.product, ticket: ticket), animated: true)
+        if let group = group, let navigation = navigationController {
+            if let ticket = group.active {
+                navigation.pushViewController(TicketController(product: group.product, ticket: ticket), animated: true)
+                
+            } else if group.hasTickets {
+                progress(Ticket.activate().then { ticket -> Void in
+                    navigation.pushViewController(TicketController(product: group.product, ticket: ticket), animated: true)
+                })
                 
             } else {
                 progress(Session.getUser().then { user -> Void in
                     let controller = CheckoutController(user: user, product: group.product)
-                    self.navigationController?.pushViewController(controller, animated: true)
+                    navigation.pushViewController(controller, animated: true)
                 })
             }
         }

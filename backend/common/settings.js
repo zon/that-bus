@@ -13,4 +13,5 @@ module.exports = {
 	},
 	cookieSecret: 'hq60r2v7zqzkwe3559h8xc19j8z1osba',
 	loginTokenExpiration: 0.5, // hours
+	ticketExpiration: 10 // minutes
 }
