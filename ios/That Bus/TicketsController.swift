@@ -19,7 +19,7 @@ class TicketsController : UIViewController {
     override func loadView() {
         view = layout
         
-        layout.quantity.button.addTarget(self, action: #selector(buyTouch), for: .touchUpInside)
+        layout.quantity.button.addTarget(self, action: #selector(groupTouch), for: .touchUpInside)
         
     }
     
@@ -40,12 +40,17 @@ class TicketsController : UIViewController {
         })
     }
     
-    func buyTouch() {
+    func groupTouch() {
         if let group = group {
-            progress(Session.getUser().then { user -> Void in
-                let controller = CheckoutController(user: user, product: group.product)
-                self.navigationController?.pushViewController(controller, animated: true)
-            })
+            if group.purchased {
+                navigationController?.pushViewController(TicketController(), animated: true)
+                
+            } else {
+                progress(Session.getUser().then { user -> Void in
+                    let controller = CheckoutController(user: user, product: group.product)
+                    self.navigationController?.pushViewController(controller, animated: true)
+                })
+            }
         }
     }
     

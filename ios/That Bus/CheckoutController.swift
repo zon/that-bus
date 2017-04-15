@@ -17,6 +17,7 @@ class CheckoutController: UIViewController, STPPaymentContextDelegate {
         
         super.init(nibName: nil, bundle: nil)
         title = "Checkout"
+        hidesBottomBarWhenPushed = true
         
         context.delegate = self
         context.hostViewController = self

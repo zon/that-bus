@@ -37,6 +37,10 @@
 		ECA03C3F1EA299030018E70F /* TicketGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C3E1EA299030018E70F /* TicketGroup.swift */; };
 		ECA03C411EA29D550018E70F /* Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C401EA29D550018E70F /* Format.swift */; };
 		ECA03C431EA2A2670018E70F /* JSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C421EA2A2670018E70F /* JSONExtension.swift */; };
+		ECA03C451EA2B2F50018E70F /* CameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C441EA2B2F50018E70F /* CameraController.swift */; };
+		ECA03C471EA2B63D0018E70F /* TicketLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C461EA2B63D0018E70F /* TicketLayout.swift */; };
+		ECA03C491EA2B7D90018E70F /* TicketController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA03C481EA2B7D90018E70F /* TicketController.swift */; };
+		ECA03C4F1EA2C5C10018E70F /* Inside Bus.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = ECA03C4E1EA2C5C10018E70F /* Inside Bus.mp4 */; };
 		ECBD865F1E9C19EE008400AD /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD865E1E9C19EE008400AD /* Unit.swift */; };
 		ECBD86611E9C1B58008400AD /* TicketsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD86601E9C1B58008400AD /* TicketsController.swift */; };
 		ECBD86631E9C1C7F008400AD /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECBD86621E9C1C7F008400AD /* ProfileController.swift */; };
@@ -82,6 +86,10 @@
 		ECA03C3E1EA299030018E70F /* TicketGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketGroup.swift; sourceTree = "<group>"; };
 		ECA03C401EA29D550018E70F /* Format.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Format.swift; sourceTree = "<group>"; };
 		ECA03C421EA2A2670018E70F /* JSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONExtension.swift; sourceTree = "<group>"; };
+		ECA03C441EA2B2F50018E70F /* CameraController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraController.swift; sourceTree = "<group>"; };
+		ECA03C461EA2B63D0018E70F /* TicketLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketLayout.swift; sourceTree = "<group>"; };
+		ECA03C481EA2B7D90018E70F /* TicketController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketController.swift; sourceTree = "<group>"; };
+		ECA03C4E1EA2C5C10018E70F /* Inside Bus.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inside Bus.mp4"; sourceTree = "<group>"; };
 		ECBD865E1E9C19EE008400AD /* Unit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		ECBD86601E9C1B58008400AD /* TicketsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsController.swift; sourceTree = "<group>"; };
 		ECBD86621E9C1C7F008400AD /* ProfileController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -128,6 +136,7 @@
 				EC26C7761E9D44CA0020F64F /* TicketsLayout.swift */,
 				EC26C7821E9D68A20020F64F /* RegisterLayout.swift */,
 				ECD724C41E9EA778000B3611 /* CheckoutLayout.swift */,
+				ECA03C461EA2B63D0018E70F /* TicketLayout.swift */,
 			);
 			name = Layouts;
 			sourceTree = "<group>";
@@ -173,6 +182,7 @@
 				EC6C10B41E9C16CB0018DB78 /* AppDelegate.swift */,
 				EC6C10B61E9C16CB0018DB78 /* ViewController.swift */,
 				EC6C10B81E9C16CB0018DB78 /* Main.storyboard */,
+				ECA03C4E1EA2C5C10018E70F /* Inside Bus.mp4 */,
 				EC6C10BB1E9C16CB0018DB78 /* Assets.xcassets */,
 				EC6C10BD1E9C16CB0018DB78 /* LaunchScreen.storyboard */,
 				EC6C10C01E9C16CB0018DB78 /* Info.plist */,
@@ -213,12 +223,14 @@
 			isa = PBXGroup;
 			children = (
 				ECBD86601E9C1B58008400AD /* TicketsController.swift */,
+				ECA03C441EA2B2F50018E70F /* CameraController.swift */,
 				ECBD86621E9C1C7F008400AD /* ProfileController.swift */,
 				ECBD86651E9C1CA4008400AD /* TabBarController.swift */,
 				EC26C7841E9D6CA00020F64F /* RegisterController.swift */,
 				ECD724BB1E9EA2FB000B3611 /* CheckoutController.swift */,
 				ECA03C321EA15B510018E70F /* AlertController.swift */,
 				ECA03C381EA15F1E0018E70F /* ProgressController.swift */,
+				ECA03C481EA2B7D90018E70F /* TicketController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -261,6 +273,9 @@
 		EC6C10A91E9C16CB0018DB78 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					bottle_move,
+				);
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Haralovich;
@@ -298,6 +313,7 @@
 				EC6C10BF1E9C16CB0018DB78 /* LaunchScreen.storyboard in Resources */,
 				EC6C10BC1E9C16CB0018DB78 /* Assets.xcassets in Resources */,
 				EC6C10BA1E9C16CB0018DB78 /* Main.storyboard in Resources */,
+				ECA03C4F1EA2C5C10018E70F /* Inside Bus.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +381,7 @@
 				ECBD865F1E9C19EE008400AD /* Unit.swift in Sources */,
 				ECD724BC1E9EA2FB000B3611 /* CheckoutController.swift in Sources */,
 				ECA03C271EA150FE0018E70F /* DocProtocol.swift in Sources */,
+				ECA03C451EA2B2F50018E70F /* CameraController.swift in Sources */,
 				EC26C7871E9D71A10020F64F /* TextField.swift in Sources */,
 				ECA03C3D1EA2984E0018E70F /* Ticket.swift in Sources */,
 				ECA03C2F1EA1576F0018E70F /* Session.swift in Sources */,
@@ -377,7 +394,9 @@
 				ECA03C291EA1514B0018E70F /* API.swift in Sources */,
 				ECA03C351EA15B740018E70F /* Settings.swift in Sources */,
 				ECA03C391EA15F1E0018E70F /* ProgressController.swift in Sources */,
+				ECA03C491EA2B7D90018E70F /* TicketController.swift in Sources */,
 				ECA03C2D1EA1566E0018E70F /* DocResponseError.swift in Sources */,
+				ECA03C471EA2B63D0018E70F /* TicketLayout.swift in Sources */,
 				ECA03C331EA15B510018E70F /* AlertController.swift in Sources */,
 				ECA03C3F1EA299030018E70F /* TicketGroup.swift in Sources */,
 				ECBD86661E9C1CA4008400AD /* TabBarController.swift in Sources */,
