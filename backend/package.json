@@ -1,7 +1,15 @@
 {
   "name": "buspass",
   "version": "1.0.0",
+  "description": "Mobile bus passes.",
+  "author": "Matthew Z Haralovich <zon@haralovich.org>",
+  "repository": "https://github.com/zon/that-bus",
+  "license": "GPL-3.0",
+  "private": true,
   "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.1",
     "connect-redis": "^3.2.0",

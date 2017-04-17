@@ -1,0 +1,17 @@
+that-bus-mongo:
+  image: 'mongo'
+  restart: always
+that-bus-redis:
+  image: 'redis'
+  restart: always
+that-bus-backend:
+  image: 'zvonimir/that-bus:latest'
+  links:
+    - that-bus-mongo
+    - that-bus-redis
+  environment:
+    - 'DATABASE_HOST=that-bus-mongo'
+    - 'REDIS_HOST=that-bus-redis'
+  ports:
+    - '8080:8080'
+  restart: always

@@ -13,13 +13,13 @@ db.connect()
 var app = express()
 
 app.use(bodyParser.json({limit: '10mb'}))
-app.use(cookieParser(settings.cookieSecret))
+app.use(cookieParser(config.cookieSecret))
 app.use(expressSession({
-	secret: settings.cookieSecret,
+	secret: config.cookieSecret,
 	cookie: {maxAge: 3600*24*365*10},
 	store: new RedisStore({
-		host: settings.redis.host,
-		port: settings.redis.port
+		host: config.redisHost,
+		port: config.redisPort
 	}),
 	resave: false,
 	saveUninitialized: false
@@ -43,10 +43,12 @@ app.use((req, res, next) => {
 	next()
 })
 
-app.use((req, res, next) => {
-	console.log(req.method +" "+ req.url)
-	next()
-})
+if (!settings.production) {
+	app.use((req, res, next) => {
+		console.log(req.method +" "+ req.url)
+		next()
+	})
+}
 
 app.use('/products', require('./routes/products'))
 app.use('/tickets', require('./routes/tickets'))

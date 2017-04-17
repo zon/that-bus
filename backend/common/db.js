@@ -6,12 +6,10 @@ var Product = require('../models/product')
 
 mongoose.Promise = global.Promise
 
-var host = config.database || 'localhost'
-
 module.exports = {
 
 	connect: function() {
-		mongoose.connect('mongodb://'+ host +'/'+ settings.db)
+		mongoose.connect('mongodb://'+ config.databaseHost +':'+ config.databasePort +'/'+ config.databaseName)
 
 		Product.setup()
 	}
