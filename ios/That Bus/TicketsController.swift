@@ -28,16 +28,21 @@ class TicketsController : UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        progress(when(fulfilled: Product.get(), Ticket.get()).then { products, tickets -> Void in
-            if let product = products.first {
-                let group = TicketGroup(product: product, tickets: tickets)
-                self.group = group
-                self.layout.update(group: group)
-            } else {
-                self.group = nil
-                AlertController.show(message: "No tickets found.")
-            }
-        })
+        progress(
+            Session
+                .getUser()
+                .then { _ in when(fulfilled: Product.get(), Ticket.get()) }
+                .then { products, tickets -> Void in
+                    if let product = products.first {
+                        let group = TicketGroup(product: product, tickets: tickets)
+                        self.group = group
+                        self.layout.update(group: group)
+                    } else {
+                        self.group = nil
+                        AlertController.show(message: "No tickets found.")
+                    }
+                }
+        )
     }
     
     func groupTouch() {

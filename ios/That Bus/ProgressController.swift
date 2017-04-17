@@ -12,7 +12,7 @@ class ProgressController : UIViewController {
             
             let win = UIWindow(frame: UIScreen.main.bounds)
             win.rootViewController = current
-            win.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+            win.backgroundColor = UIColor.black.withAlphaComponent(0.3)
             win.windowLevel = UIWindowLevelAlert + 1
             win.makeKeyAndVisible()
             window = win
