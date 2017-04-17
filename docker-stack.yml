@@ -5,7 +5,7 @@ that-bus-redis:
   image: 'redis'
   restart: always
 that-bus-backend:
-  image: 'zvonimir/that-bus:latest'
+  image: 'zvonimir/that-bus-backend:latest'
   links:
     - that-bus-mongo
     - that-bus-redis
