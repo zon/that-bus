@@ -24,8 +24,6 @@ try {
 
 config = Object.assign(defaults, config)
 
-console.log(process.env)
-
 config.databaseHost = process.env.DATABASE_HOST || config.databaseHost
 config.redisHost = process.env.REDIS_HOST || config.redisHost
 config.cookieSecret = process.env.COOKIE_SECRET || config.cookieSecret
