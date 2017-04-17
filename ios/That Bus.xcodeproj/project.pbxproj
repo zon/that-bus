@@ -282,7 +282,7 @@
 				TargetAttributes = {
 					EC6C10B01E9C16CB0018DB78 = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = 4R9VQJ34Q5;
+						DevelopmentTeam = 8PJBZ32NWL;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -532,11 +532,11 @@
 			baseConfigurationReference = 35F5F87F7A76A1B79FD16772 /* Pods-BT Bus Pass.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4R9VQJ34Q5;
+				DEVELOPMENT_TEAM = 8PJBZ32NWL;
 				INFOPLIST_FILE = "That Bus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.haralovich.That-Bus";
+				PRODUCT_BUNDLE_IDENTIFIER = org.haralovich.BTBusPass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -547,11 +547,11 @@
 			baseConfigurationReference = 2E65642A58314986F6D86D43 /* Pods-BT Bus Pass.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4R9VQJ34Q5;
+				DEVELOPMENT_TEAM = 8PJBZ32NWL;
 				INFOPLIST_FILE = "That Bus/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.haralovich.That-Bus";
+				PRODUCT_BUNDLE_IDENTIFIER = org.haralovich.BTBusPass;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
